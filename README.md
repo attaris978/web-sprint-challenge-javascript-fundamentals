@@ -25,14 +25,21 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read.
 
 1. Explain the differences between `.map`, `.reduce` and `.filter` and describe a use case for each. 
-
+-The Array.map() method takes each entry in an array, runs a function on it, and returns a new array with the results. This is useful if you want to retain the values of the original array, but want to work with part of the data (such as taking an array of objects, each representing a person, and map()ing out a new array with their names). It accepts a callback function with three parameters -- value, index, and array, in that order.
+-The Array.filter() method is similar to map() in that it accepts a callback function with potential parameters of value, index, and array, but instead expects the function to return a boolean result. Truthy results get added to a new array, leaving the original array untouched. This could be useful if working with a large database of objects, each representing a book, and wanted to form a new array consisting solely of books published after a certain date, or starting with a particular letter, etc.
+-The Array.reduce() method takes an array, runs an operation on each item in the array, and effectively rolls the result of each iteration into the value fed to the next iteration. The result is a reduction to a single value. This could be useful if you wanted to simply sum the all the values in an array. 
 2. Explain the difference between a callback and a higher order function.
-
+-A callback function is one which is passed into another function wherein it performs some task. A higher order function is one that returns a function (as opposed to a simple declarative value). A callback function could very well be a higher order function in particular circumstances, and vice versa.
 3. Explain what a closure is.
+-A Closure is created (yes, we're giving it a capital C at this point) every time a function is created (at the time in which it is created). When a function is declared, the function is enclosed (enClosured? haha) along with access to the outer-function's scope (collectively, the "lexical environment"). The inner function therefore retains access to the existant variables in the outer function's scope, even after the outer function has completed its task and returned.
 
 4. Describe the four principles of the 'this' keyword.
-
+i)  Window/Global binding - in the global scope, 'this' refers to the global object (which is the window object in a browser).
+ii) Implicit Binding - when a preceding dot calls a function (read: an object's method is called), 'this' refers to the object to the left of the dot.
+iii)New Binding - when a constructor function creates a new object, 'this' refers to the instance of the new object (not to the Class or constructor function).
+iv) Explicit Binding - certain methods allow the 'this' referent to be set explicity -- namely: apply(), call(), and of course bind().
 5. Why do we need super() in an extended class?
+-The super() method within an extended class constructor offloads part of the property declarations to the parent class's constructor function. This is one of the major benefits of using extended classes -- the ability to not have to reenter property declarations for every object.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
